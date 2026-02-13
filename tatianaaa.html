@@ -1,0 +1,926 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Татьяна Перова · психофизиолог, гипнолог, организатор здравоохранения
+    </title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* СВЕТЛАЯ ТЕМА В СТИЛЕ ВАН ГОГА, СОХРАНЕНА СТРУКТУРА ПЕРВОГО САЙТА */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Cormorant Garamond", "Georgia", serif;
+        font-size: 18px;
+        line-height: 1.6;
+        color: #2c2c2c;
+        background-color: #f9f7f2;
+        background-image:
+          radial-gradient(
+            circle at 30% 40%,
+            rgba(218, 165, 32, 0.03) 0%,
+            transparent 30%
+          ),
+          radial-gradient(
+            circle at 80% 70%,
+            rgba(139, 69, 19, 0.03) 0%,
+            transparent 40%
+          );
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      .hero-name,
+      .logo,
+      .nav-button,
+      .btn,
+      .pill,
+      .label {
+        font-family: "Playfair Display", "Times New Roman", serif;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+      }
+
+      p,
+      li,
+      .quote,
+      .intro,
+      .contact-row,
+      .timeline-meta {
+        font-family: "Cormorant Garamond", "Georgia", serif;
+        font-size: 1.1rem;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: rgba(255, 248, 240, 0.92);
+        backdrop-filter: blur(8px);
+        border-bottom: 2px solid #daa520;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      }
+
+      .header-inner {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 12px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .logo {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #8b4513;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        border-left: 4px solid #daa520;
+        padding-left: 12px;
+      }
+
+      nav {
+        display: flex;
+        gap: 24px;
+      }
+
+      nav a {
+        font-family: "Playfair Display", serif;
+        color: #5a3e1b;
+        font-weight: 600;
+        font-size: 1rem;
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: 0.2s;
+        padding-bottom: 4px;
+      }
+
+      nav a:hover {
+        border-bottom-color: #daa520;
+        color: #8b4513;
+        text-decoration: none;
+      }
+
+      .menu-toggle {
+        display: none;
+        background: #f0e6d2;
+        border: 1px solid #daa520;
+        border-radius: 30px;
+        padding: 6px 14px;
+        font-family: "Playfair Display", serif;
+        color: #5a3e1b;
+        cursor: pointer;
+      }
+
+      main {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 30px 16px 50px;
+      }
+
+      section {
+        background: #fffaf3;
+        border-radius: 24px;
+        padding: 28px 30px;
+        margin-bottom: 25px;
+        border: 1px solid #e9d6b0;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s;
+      }
+
+      section:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 35px rgba(139, 69, 19, 0.15);
+        border-color: #daa520;
+      }
+
+      .pill {
+        background: #fff3d6;
+        color: #8b4513;
+        border: 1px solid #daa520;
+        font-size: 0.8rem;
+        padding: 5px 14px;
+        border-radius: 40px;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 1px;
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+
+      h1 {
+        color: #5a3e1b;
+        font-size: 2.2rem;
+        font-weight: 700;
+        border-bottom: 2px dashed #daa520;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        color: #8b4513;
+        font-size: 1.9rem;
+        font-weight: 700;
+        border-left: 6px solid #daa520;
+        padding-left: 20px;
+        margin: 25px 0 20px;
+      }
+
+      h3 {
+        color: #6b4f2a;
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-top: 15px;
+      }
+
+      .intro,
+      .quote {
+        background: #fcf6e7;
+        border-left: 6px solid #daa520;
+        padding: 18px 22px;
+        font-style: italic;
+        font-size: 1.2rem;
+        color: #3e2e1a;
+        border-radius: 0 20px 20px 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+        margin: 20px 0;
+      }
+
+      .key-work {
+        font-weight: 700;
+        color: #b45f1b;
+        font-size: 1.2rem;
+        background: #fff0d8;
+        display: inline-block;
+        padding: 5px 20px;
+        border-radius: 40px;
+        border: 1px solid #daa520;
+      }
+
+      .skill-card,
+      .project-card,
+      .painting-card,
+      .contact-card,
+      .timeline-item,
+      .hero-profile-card,
+      .achievement-card {
+        background: #fefcf8;
+        border: 1px solid #eedbba;
+        border-radius: 16px;
+        padding: 18px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+        transition: all 0.2s;
+      }
+
+      .skill-card:hover,
+      .project-card:hover,
+      .painting-card:hover,
+      .contact-card:hover,
+      .timeline-item:hover,
+      .hero-profile-card:hover,
+      .achievement-card:hover {
+        transform: scale(1.02) translateY(-4px);
+        border-color: #daa520;
+        box-shadow: 0 18px 25px -8px rgba(218, 165, 32, 0.2);
+        background: #fffcf5;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+        gap: 25px;
+        align-items: start;
+      }
+
+      .hero-profile-card {
+        background: #fff7eb;
+        border-left: 6px solid #daa520;
+      }
+
+      .hero-name {
+        font-size: 2rem;
+        color: #8b4513;
+        font-weight: 700;
+      }
+
+      .hero-role {
+        font-size: 1.2rem;
+        color: #b17b4a;
+        margin-bottom: 10px;
+        font-style: italic;
+      }
+
+      .hero-badge {
+        display: inline-block;
+        background: #f2e3c6;
+        border: 1px solid #daa520;
+        padding: 4px 12px;
+        border-radius: 40px;
+        font-size: 0.9rem;
+        margin: 3px;
+        color: #4f3a1f;
+      }
+
+      .tag {
+        background: #fff9e6;
+        border: 1px solid #daa520;
+        color: #6b4f2a;
+        padding: 4px 14px;
+        border-radius: 40px;
+        font-size: 0.9rem;
+      }
+
+      .btn-primary {
+        background: #8b4513;
+        border: 1px solid #8b4513;
+        color: #fef7e0;
+        padding: 8px 24px;
+        border-radius: 40px;
+        font-weight: 600;
+        transition: 0.2s;
+      }
+
+      .btn-primary:hover {
+        background: #b45f1b;
+        border-color: #daa520;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(181, 101, 30, 0.3);
+      }
+
+      .btn-ghost {
+        background: transparent;
+        border: 1px solid #daa520;
+        color: #5a3e1b;
+        padding: 8px 24px;
+        border-radius: 40px;
+      }
+
+      .btn-ghost:hover {
+        background: #f5e7d3;
+        border-color: #b45f1b;
+      }
+
+      .timeline-item {
+        border-left: 4px solid #daa520;
+        margin-bottom: 16px;
+        padding: 14px 18px;
+      }
+
+      .label {
+        color: #a76225;
+        font-weight: 700;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        border-bottom: 1px solid #daa520;
+        padding-bottom: 3px;
+        margin-bottom: 8px;
+      }
+
+      .epilogue {
+        background: #fdf3e3;
+        border: 1px solid #e9cba7;
+        border-radius: 30px;
+        padding: 25px;
+        text-align: center;
+        margin-top: 30px;
+        border-top: 5px solid #daa520;
+      }
+
+      input,
+      textarea {
+        background: #fffcf2;
+        border: 1px solid #e9cfaa;
+        border-radius: 30px;
+        padding: 12px 18px;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.1rem;
+      }
+
+      input:focus,
+      textarea:focus {
+        border-color: #daa520;
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.2);
+      }
+
+      footer {
+        color: #8b6f4c;
+        border-top: 1px solid #daa520;
+        padding: 25px;
+        text-align: center;
+        font-size: 1rem;
+      }
+
+      .lang-switch button {
+        background: #f0e2ce;
+        border: 1px solid #daa520;
+        color: #5a3e1b;
+        padding: 4px 12px;
+        border-radius: 30px;
+        margin: 0 3px;
+      }
+
+      .lang-switch button:hover {
+        background: #daa520;
+        color: white;
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          display: none;
+          flex-direction: column;
+          background: #faf3e8;
+          padding: 15px;
+          border-radius: 16px;
+        }
+        header.open nav {
+          display: flex;
+        }
+        .menu-toggle {
+          display: block;
+        }
+        .hero-grid,
+        .two-cols,
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+        h1 {
+          font-size: 1.8rem;
+        }
+      }
+
+      .two-cols {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+      }
+      .skill-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 16px;
+      }
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 18px;
+      }
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+      }
+      .lang-block {
+        display: block;
+      }
+      .lang-block[style*="display: none"] {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <header id="siteHeader">
+      <div class="header-inner">
+        <div class="logo">Татьяна Перова</div>
+        <button class="menu-toggle" onclick="toggleMenu()">Меню</button>
+        <nav>
+          <a href="#about" onclick="closeMenu()">Обо мне</a>
+          <a href="#experience" onclick="closeMenu()">Опыт</a>
+          <a href="#education" onclick="closeMenu()">Образование</a>
+          <a href="#portfolio" onclick="closeMenu()">Проекты</a>
+          <a href="#testimonials-cases" onclick="closeMenu()">Отзывы</a>
+          <a href="#contact" onclick="closeMenu()">Контакты</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- ABOUT секция с обновленной информацией из резюме -->
+      <section id="about">
+        <span class="pill"
+          >Психофизиолог · Гипнолог · Организатор здравоохранения</span
+        >
+        <div class="hero-grid">
+          <div>
+            <h1 class="hero-title">
+              Соединяю клинику, психофизиологию и управление
+            </h1>
+            <div class="intro">
+              «Нейропсихолог-реабилитолог с опытом более 1200 диагностических
+              исследований и 1000+ нейрокоррекционных занятий. Управляла
+              проектами в Росздравнадзоре, разрабатывала wellbeing-стратегии для
+              Администрации Президента РФ, Минздрава, топ-10 банков. Член
+              Экспертного совета Минтруда, кадровый резерв Росздравнадзора и
+              Минздрава.»
+            </div>
+            <div class="hero-tags">
+              <span class="tag">нейропсихология</span>
+              <span class="tag">гипноз</span>
+              <span class="tag">организация здравоохранения</span>
+              <span class="tag">wellbeing-стратегии</span>
+              <span class="tag">SROI</span>
+              <span class="tag">CDTO</span>
+            </div>
+            <div class="hero-cta" style="margin-top: 20px">
+              <a href="#contact" class="btn-primary">Обсудить задачу</a>
+              <a href="#portfolio" class="btn-ghost">Проекты</a>
+            </div>
+          </div>
+          <div class="hero-profile-card">
+            <div class="hero-name">Татьяна Перова</div>
+            <div class="hero-role">психофизиолог, нейропсихолог, гипнолог</div>
+            <p>
+              ➕ Включена в кадровый резерв Росздравнадзора и Минздрава
+              России<br />
+              ➕ Член Экспертного совета по развитию госслужбы при Минтруде
+              РФ<br />
+              ➕ Призёр всероссийского конкурса Минтруда «Лучшие практики
+              госуправления» (2018, 2019, 2021)<br />
+              ➕ Наставник WorldSkills<br />
+              ➕ Автор концепции развития АНО «Московский центр инновационных
+              технологий в здравоохранении»
+            </p>
+            <div class="hero-badges">
+              <span class="hero-badge">клиническая нейропсихология</span>
+              <span class="hero-badge">нацпроект Здравоохранение</span>
+              <span class="hero-badge">wellbeing-стратегии</span>
+              <span class="hero-badge"
+                >искусственный интеллект в здравоохранении</span
+              >
+            </div>
+          </div>
+        </div>
+        <div style="margin-top: 25px">
+          <div class="label">Контакты</div>
+          <div class="quote" style="font-style: normal">
+            📞 +7 (916) 888-80-68 · ✉️ tanperova@yandex.ru
+          </div>
+        </div>
+      </section>
+
+      <!-- НОВЫЙ РАЗДЕЛ: ОПЫТ РАБОТЫ (подробно из резюме) -->
+      <section id="experience">
+        <span class="pill">Карьера</span>
+        <h2>Опыт работы</h2>
+
+        <div class="timeline-item">
+          <h3>Управление проектами (сентябрь 2021 – н.в.)</h3>
+          <ul>
+            <li>
+              Инициировала внесение предложений в план работы Координационного
+              совета при Правительстве РФ по реализации Национальной стратегии
+              действий в интересах женщин (председатель Т.А. Голикова) и в
+              повестку III Евразийского Женского Форума.
+            </li>
+            <li>
+              Подготовка аналитических обзоров по мониторингам в
+              здравоохранении, корректировка дорожных карт развития с учётом
+              рисков.
+            </li>
+            <li>
+              Консультирование по wellbeing-стратегиям (Управление госслужбы и
+              кадров Президента РФ, банки топ‑10, Минздрав).
+            </li>
+            <li>
+              Разработка концепции развития АНО «Московский центр инновационных
+              технологий в здравоохранении» (medtech.moscow), привлечение
+              руководителей проектов.
+            </li>
+            <li>
+              Подбор руководящих кадров для медицинских и образовательных
+              учреждений, включение в экспертный совет «Единой России».
+            </li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <h3>
+            Росздравнадзор, Центральный аппарат (сентябрь 2018 – сентябрь 2021)
+          </h3>
+          <p>
+            <em
+              >Управление проектами и программами кооперации, координация команд
+              юристов, инженеров, фармакологов, врачей, провизоров, госслужащих
+              для реализации нацпроекта «Здравоохранение».</em
+            >
+          </p>
+          <ul>
+            <li>
+              Сопровождение федеральных проектов: первичная медико-санитарная
+              помощь, борьба с сердечно-сосудистыми заболеваниями, развитие сети
+              НМИЦ, кадровое обеспечение.
+            </li>
+            <li>
+              Экспертно-аналитическое сопровождение эксперимента Правительства
+              РФ по оценке соответствия профтребованиям (под кураторством
+              Управления госслужбы и кадров Президента РФ, Минтруда, РАНХиГС).
+            </li>
+            <li>
+              Участие в оптимизации лекарственного обеспечения и определении
+              взаимозаменяемости препаратов.
+            </li>
+            <li>
+              Взаимодействие с федеральными органами власти, ВУЗами,
+              общественными организациями; представление Росздравнадзора на
+              Гайдаровском форуме, IMDRF, СПб Международном Форуме Труда.
+            </li>
+            <li>
+              Разработка ТЗ для внедрения ИИ на «горячую линию» Росздравнадзора.
+            </li>
+            <li>
+              Построение системы полного цикла рекрутмента и развития персонала,
+              проекты-призёры конкурса Минтруда (2018, 2019, 2021).
+            </li>
+            <li>
+              Организация практики студентов-ординаторов, создание кванториума,
+              взаимодействие с целевыми студентами ВНИИИМТ.
+            </li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <h3>
+            ООО «Андекс», зам. генерального директора (декабрь 2012 – июнь 2018)
+          </h3>
+          <ul>
+            <li>
+              Консультационная поддержка по взаимодействию с органами
+              исполнительной власти при согласовании проектной документации.
+            </li>
+            <li>
+              Стратегический анализ и оценка политической ситуации (дашборды).
+            </li>
+            <li>
+              Организация участия в мероприятиях инфраструктуры поддержки малого
+              и среднего бизнеса.
+            </li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Клиническая практика (март 2009 – июль 2018)</h3>
+          <p>
+            <em
+              >ПКБ №1 им. Алексеева, ФМИЦПН им. Сербского, Центр патологии речи
+              и нейрореабилитации</em
+            >
+          </p>
+          <ul>
+            <li>
+              Более 1200 психодиагностических исследований с заключениями с
+              учётом нозологии.
+            </li>
+            <li>
+              Консультирование пациентов соматического стационара (в т.ч.
+              онкологических).
+            </li>
+            <li>Внедрение нейроинтерфейсов (пассивные BCI) в реабилитацию.</li>
+            <li>
+              1000+ нейрокоррекционных занятий (когнитивная, двигательная,
+              эмоционально-волевая сферы; Cognifit и др.).
+            </li>
+            <li>
+              Выявление неспецифических нейродинамических нарушений, топический
+              диагноз до МРТ при ОНМК.
+            </li>
+            <li>Обзоры научных статей по neuroscience.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <h3>
+            Ранний опыт: PR/GR-менеджер TERVOLINA, и.о. начальника
+            информационно-аналитического отдела Комитета рекламы Москвы, HR в
+            холдинге «Энергия»
+          </h3>
+        </div>
+      </section>
+
+      <!-- ОБРАЗОВАНИЕ (подробно из резюме) -->
+      <section id="education">
+        <span class="pill">Образование и сертификаты</span>
+        <h2>Академический путь</h2>
+        <div class="two-cols">
+          <div>
+            <div class="label">Формальное образование</div>
+            <div class="timeline-item">
+              <h3>Data Analyst, GeeKBrains (2023)</h3>
+            </div>
+            <div class="timeline-item">
+              <h3>
+                МГУ им. Ломоносова, «Высшая нервная деятельность,
+                нейрофизиология поведения» (2022)
+              </h3>
+            </div>
+            <div class="timeline-item">
+              <h3>
+                РАНХиГС, «Руководитель цифровой трансформации» (CDTO) (2019)
+              </h3>
+            </div>
+            <div class="timeline-item">
+              <h3>
+                РНИМУ им. Пирогова, нейропсихолог-психофизиолог (2017) —
+                реабилитация с нейрогарнитурой при ЧМТ, инсультах; замещающий
+                онтогенез
+              </h3>
+            </div>
+            <div class="timeline-item">
+              <h3>РМАНПО, психиатрия раннего возраста (2017)</h3>
+            </div>
+            <div class="timeline-item">
+              <h3>
+                Институт психотерапии и клинической психологии, эриксоновский
+                гипноз (2016)
+              </h3>
+            </div>
+            <div class="timeline-item">
+              <h3>
+                Институт психологии РАН — ГАУГН, лаборатория психофизиологии им.
+                Швыркова (2005)
+              </h3>
+            </div>
+          </div>
+          <div>
+            <div class="label">Сертификаты / доп. образование</div>
+            <ul style="font-size: 1.1rem">
+              <li>«Актуальные вопросы современной неврологии»</li>
+              <li>«Неврология в клинических примерах»</li>
+              <li>«Аспекты неврологии в общей терапевтической практике»</li>
+              <li>
+                «Психическое здоровье человека и общества. Актуальные
+                междисциплинарные проблемы»
+              </li>
+            </ul>
+            <div class="label">Ключевые навыки</div>
+            <div class="skill-card" style="margin-top: 10px">
+              <p><strong>Языки:</strong> английский B2, французский A1</p>
+              <p>
+                <strong>Цифровые инструменты:</strong> MS Office, Google
+                Forms/Analytics, Tableau, ЕИСУКС, АИС-Росздравнадзор, Sever.AI,
+                Mindmap, методики Human Resources / Ditec / ЭКОПСИ / СМИЛ.
+              </p>
+              <p>
+                <strong
+                  >Управление командой, аналитика, быстрые решения.</strong
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="epilogue" style="margin-top: 20px">
+          <p>
+            🏅 Включена в кадровый резерв Росздравнадзора и Минздрава России ·
+            Член Экспертного совета по развитию госслужбы при Минтруде РФ ·
+            Рекомендации: А.В. Самойлова (руководитель Росздравнадзора), В.В.
+            Шуленин (директор Московского центра инновационных технологий в
+            здравоохранении), Е.М. Астапенко (директор департамента Минздрава),
+            Д.В. Баснак (замдиректора Департамента кадров Правительства РФ).
+          </p>
+        </div>
+      </section>
+
+      <!-- PORTFOLIO — дополнено проектами из опыта -->
+      <section id="portfolio">
+        <span class="pill">Проекты и продукты</span>
+        <h2>Что я уже сделала</h2>
+        <div class="portfolio-grid">
+          <div class="project-card painting-card">
+            <h3>B2B‑курс «Медико‑социальная навигация + SROI»</h3>
+            <div class="painting-year">2024</div>
+            <p>Для HR, НКО: навигация, права, квоты, SROI.</p>
+          </div>
+          <div class="project-card painting-card">
+            <h3>Онлайн‑модуль «Я, моё здоровье и мои нервы»</h3>
+            <div class="painting-year">2023</div>
+            <p>Шкалы FAS, GAD-7, дневники, чек-листы.</p>
+          </div>
+          <div class="project-card painting-card">
+            <h3>Программы поддержки ухаживающих</h3>
+            <div class="painting-year">2022–2024</div>
+            <p>Анализ нагрузки, маршруты долгосрочного ухода.</p>
+          </div>
+          <div class="project-card painting-card">
+            <h3>
+              Концепция АНО «Московский центр инновационных технологий в
+              здравоохранении»
+            </h3>
+            <div class="painting-year">2021</div>
+            <p>Стратегия развития, привлечение руководителей.</p>
+          </div>
+          <div class="project-card painting-card">
+            <h3>Система рекрутмента и развития в Росздравнадзоре</h3>
+            <div class="painting-year">2018–2021</div>
+            <p>Призёр конкурса Минтруда (2018,2019,2021).</p>
+          </div>
+          <div class="project-card painting-card">
+            <h3>Нейроинтерфейсы в реабилитации (пассивные BCI)</h3>
+            <div class="painting-year">2017–2018</div>
+            <p>Внедрение в клиническую практику.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONIALS & CASES (с языковым переключением) -->
+      <section id="testimonials-cases">
+        <span class="pill">Отзывы и кейсы</span>
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          "
+        >
+          <h2 style="margin: 0">Как я работаю и результаты</h2>
+          <div class="lang-switch">
+            <button onclick="setLang('ru')">RU</button>
+            <button onclick="setLang('en')">EN</button>
+          </div>
+        </div>
+
+        <div class="lang-block lang-ru">
+          <div class="two-cols">
+            <div>
+              <div class="label">Отзывы клиентов</div>
+              <div class="quote">
+                «После 4–6 встреч вернулся контроль, ушёл ночной гуглинг
+                симптомов»
+              </div>
+              <div class="quote">
+                «Поддержка ухаживающих — стало легче делить обязанности,
+                снизилось чувство вины»
+              </div>
+              <div class="quote">
+                «Гипнотерапия — мягко, улучшился сон, освоила самогипноз»
+              </div>
+            </div>
+            <div>
+              <div class="label">Кейсы организаций</div>
+              <div class="quote">
+                Wellbeing-программа для топ-10 банка — снижение стресса
+                сотрудников, раннее обращение за помощью
+              </div>
+              <div class="quote">
+                Росздравнадзор — система оценки и развития, признана лучшей
+                практикой Минтруда (2018,2019,2021)
+              </div>
+              <div class="quote">
+                Консультирование Администрации Президента РФ по ментальному
+                здоровью сотрудников
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lang-block lang-en" style="display: none">
+          <div class="two-cols">
+            <div>
+              <div class="label">Client feedback</div>
+              <div class="quote">“Regained control, less Dr. Google”</div>
+              <div class="quote">“Easier care decisions, less guilt”</div>
+              <div class="quote">
+                “Gentle hypnotherapy, better sleep, self-hypnosis”
+              </div>
+            </div>
+            <div>
+              <div class="label">Organizational cases</div>
+              <div class="quote">
+                Wellbeing program for top‑10 bank — reduced stress
+              </div>
+              <div class="quote">
+                Federal agency — award‑winning talent system 2018,2019,2021
+              </div>
+              <div class="quote">
+                Advisor to Presidential Administration on mental health
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT с актуальными контактами -->
+      <section id="contact">
+        <span class="pill">Связаться</span>
+        <h2>Напишите, какую задачу хотите решить</h2>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <div>
+              <span class="contact-label">Телефон:</span> +7 (916) 888-80-68
+            </div>
+            <div>
+              <span class="contact-label">Email:</span>
+              <a href="mailto:tanperova@yandex.ru">tanperova@yandex.ru</a>
+            </div>
+            <div>
+              <span class="contact-label">Форматы:</span> онлайн-сессии,
+              консалтинг, вебинары, разработка программ
+            </div>
+            <div>
+              <span class="contact-label">Темы:</span> личное состояние, стресс,
+              сон, навигация, корпоративные проекты, SROI
+            </div>
+            <div>
+              <span class="contact-label">География:</span> онлайн (Россия, СНГ,
+              мир)
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="label">Быстрый запрос</div>
+            <form>
+              <input type="text" placeholder="Имя" />
+              <input type="text" placeholder="Email или Telegram" />
+              <textarea placeholder="Опишите задачу..."></textarea>
+              <button type="button" class="btn-primary">
+                Отправить (макет)
+              </button>
+            </form>
+            <p style="font-size: 0.9rem; color: #8b6f4c">
+              * демонстрационная форма, для реальной связи используйте
+              email/телефон
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © <span id="year"></span> Татьяна Перова · психофизиология, гипноз,
+      навигация, SROI · <a href="#" style="color: #8b4513">Наверх</a>
+    </footer>
+
+    <script>
+      function toggleMenu() {
+        document.getElementById("siteHeader").classList.toggle("open");
+      }
+      function closeMenu() {
+        document.getElementById("siteHeader").classList.remove("open");
+      }
+      document.getElementById("year").textContent = new Date().getFullYear();
+      function setLang(lang) {
+        document
+          .querySelectorAll(".lang-ru")
+          .forEach((el) => (el.style.display = lang === "ru" ? "" : "none"));
+        document
+          .querySelectorAll(".lang-en")
+          .forEach((el) => (el.style.display = lang === "en" ? "" : "none"));
+      }
+    </script>
+  </body>
+</html>
