@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Перова Т.А. — CBDO Digital Health</title>
+
+    <!-- Шрифты: антиква для имени, гротеск для служебных строк -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Manrope:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ─────────── ПАЛИТРА ─────────── */
+      :root {
+        --ink: #14110e; /* глубокая сепия-чернота */
+        --ink-2: #1b1713; /* чуть теплее, для градиента */
+        --ivory: #f2ece1; /* слоновая кость */
+        --ivory-dim: #c9bfae; /* приглушённый текст */
+        --bronze: #a9855a; /* бронза вместо золота */
+        --bronze-soft: #6f5738;
+        --wine: #7a2530; /* единственный акцент */
+        --line: rgba(169, 133, 90, 0.28);
+
+        --serif: "Cormorant Garamond", "Times New Roman", serif;
+        --sans: "Manrope", "Helvetica Neue", Arial, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 32px 18px;
+        background:
+          radial-gradient(120% 90% at 80% 0%, #221c16 0%, transparent 55%),
+          radial-gradient(90% 70% at 0% 100%, #1a1512 0%, transparent 60%),
+          #0d0b09;
+        font-family: var(--sans);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* ─────────── КАРТОЧКА ─────────── */
+      .card {
+        position: relative;
+        width: min(560px, 100%);
+        padding: 52px 44px 40px 60px;
+        background:
+          radial-gradient(
+            140% 100% at 100% 0%,
+            rgba(169, 133, 90, 0.07) 0%,
+            transparent 55%
+          ),
+          linear-gradient(160deg, var(--ink-2) 0%, var(--ink) 60%, #100d0a 100%);
+        border: 1px solid var(--line);
+        border-radius: 2px;
+        overflow: hidden;
+        box-shadow:
+          0 0 0 1px rgba(0, 0, 0, 0.5),
+          0 30px 80px -30px rgba(0, 0, 0, 0.9),
+          inset 0 1px 0 rgba(242, 236, 225, 0.04);
+      }
+
+      /* тонкая внутренняя рамка — как обрез книги */
+      .card::before {
+        content: "";
+        position: absolute;
+        inset: 14px;
+        border: 1px solid rgba(169, 133, 90, 0.14);
+        border-radius: 1px;
+        pointer-events: none;
+      }
+
+      /* ── ВЕРТИКАЛЬ ТОПОЛЯ ── */
+      .spine {
+        position: absolute;
+        left: 26px;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background: linear-gradient(
+          to bottom,
+          transparent 0%,
+          var(--bronze-soft) 12%,
+          var(--bronze-soft) 88%,
+          transparent 100%
+        );
+        opacity: 0.55;
+      }
+      /* узел на стволе — как точка в конце строки */
+      .spine::after {
+        content: "";
+        position: absolute;
+        left: -2.5px;
+        bottom: 52px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--bronze);
+        box-shadow: 0 0 12px rgba(169, 133, 90, 0.55);
+      }
+
+      /* ── ПИОН (линейный) ── */
+      .peony {
+        position: absolute;
+        right: -26px;
+        bottom: -26px;
+        width: 190px;
+        height: 190px;
+        opacity: 0.1;
+        pointer-events: none;
+      }
+      .peony svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      /* ─────────── НАДЗАГОЛОВОК ─────────── */
+      .eyebrow {
+        font-family: var(--sans);
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--bronze);
+        margin-bottom: 26px;
+        line-height: 1.6;
+      }
+      .eyebrow span {
+        color: var(--bronze-soft);
+      }
+
+      /* ─────────── ИМЯ ─────────── */
+      .name {
+        font-family: var(--serif);
+        font-weight: 400;
+        font-size: clamp(40px, 8vw, 56px);
+        line-height: 0.98;
+        letter-spacing: 0.005em;
+        color: var(--ivory);
+        margin-bottom: 14px;
+      }
+
+      .role {
+        font-family: var(--serif);
+        font-style: italic;
+        font-weight: 300;
+        font-size: clamp(17px, 3.4vw, 21px);
+        letter-spacing: 0.02em;
+        color: var(--ivory-dim);
+        margin-bottom: 30px;
+      }
+      .role em {
+        font-style: normal;
+        color: var(--wine);
+        filter: brightness(1.55);
+      }
+
+      /* ─────────── ЛИД ─────────── */
+      .lede {
+        font-size: 13px;
+        line-height: 1.85;
+        font-weight: 300;
+        color: #b8ac9a;
+        max-width: 42ch;
+        margin-bottom: 32px;
+      }
+      .lede b {
+        font-weight: 500;
+        color: var(--ivory);
+      }
+
+      /* ─────────── РАЗДЕЛИТЕЛЬ С ПИОНОМ ─────────── */
+      .rule {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 26px;
+      }
+      .rule::before,
+      .rule::after {
+        content: "";
+        height: 1px;
+        flex: 1;
+        background: linear-gradient(
+          to right,
+          transparent,
+          var(--line),
+          transparent
+        );
+      }
+      .rule span {
+        font-size: 13px;
+        color: var(--bronze);
+        line-height: 1;
+        transform: translateY(-1px);
+      }
+
+      /* ─────────── КОМПЕТЕНЦИИ ─────────── */
+      .facets {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 10px;
+        margin-bottom: 34px;
+      }
+      .facets li {
+        font-size: 10.5px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-weight: 400;
+        color: var(--ivory-dim);
+        padding: 7px 12px;
+        border: 1px solid rgba(169, 133, 90, 0.22);
+        border-radius: 1px;
+        background: rgba(242, 236, 225, 0.015);
+        transition:
+          color 0.35s ease,
+          border-color 0.35s ease;
+      }
+      .facets li:hover {
+        color: var(--ivory);
+        border-color: rgba(169, 133, 90, 0.5);
+      }
+
+      /* ─────────── ПОДВАЛ ─────────── */
+      .foot {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding-top: 22px;
+        border-top: 1px solid rgba(169, 133, 90, 0.16);
+      }
+      .foot p {
+        font-size: 10.5px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--bronze-soft);
+        line-height: 1.9;
+      }
+      .foot p strong {
+        font-weight: 500;
+        color: var(--bronze);
+      }
+      .foot .sep {
+        color: var(--line);
+        margin: 0 7px;
+      }
+
+      /* ─────────── МОБИЛЬНЫЙ ─────────── */
+      @media (max-width: 480px) {
+        .card {
+          padding: 42px 26px 32px 44px;
+        }
+        .spine {
+          left: 18px;
+        }
+        .peony {
+          width: 140px;
+          height: 140px;
+          right: -22px;
+          bottom: -22px;
+        }
+        .eyebrow {
+          margin-bottom: 20px;
+        }
+        .lede {
+          font-size: 12.5px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <article class="card">
+      <!-- вертикаль ствола -->
+      <div class="spine" aria-hidden="true"></div>
+
+      <!-- линейный пион -->
+      <div class="peony" aria-hidden="true">
+        <svg
+          viewBox="0 0 200 200"
+          fill="none"
+          stroke="#a9855a"
+          stroke-width="0.9"
+        >
+          <circle cx="100" cy="100" r="9" />
+          <path d="M100 91c-14-6-24-2-26 8s6 20 20 24" />
+          <path d="M100 91c14-6 24-2 26 8s-6 20-20 24" />
+          <path d="M109 100c10-10 22-11 28-2s2 22-10 29" />
+          <path d="M91 100c-10-10-22-11-28-2s-2 22 10 29" />
+          <path d="M100 109c8 12 6 24-4 28s-22-4-26-17" />
+          <path d="M100 109c-8 12-6 24 4 28s22-4 26-17" />
+          <path d="M100 133v34" />
+          <path d="M100 152c-9 0-16-4-19-10" />
+          <path d="M100 160c9 0 16-4 19-10" />
+        </svg>
+      </div>
+
+      <p class="eyebrow">
+        Digital&nbsp;Health <span>·</span> Стратегия <span>·</span> GR
+      </p>
+
+      <h1 class="name">Перова&nbsp;Т.&nbsp;А.</h1>
+
+      <p class="role">CBDO &nbsp;<em>·</em>&nbsp; Digital Health</p>
+
+      <p class="lede">
+        <b>18+ лет</b> развития бизнеса на высокорегулируемых рынках. В фокусе —
+        стратегический консалтинг, аудит рынка и работа по достижению
+        национальных приоритетов. Эксперт в построении GR-стратегий,
+        B2B-продажах, формировании альянсов, создании экосистем и
+        масштабировании цифровых решений в здравоохранении.
+      </p>
+
+      <div class="rule"><span>⚘</span></div>
+
+      <ul class="facets">
+        <li>Стратегический консалтинг</li>
+        <li>Аудит рынка</li>
+        <li>GR-стратегии</li>
+        <li>B2B-продажи</li>
+        <li>Альянсы</li>
+        <li>Экосистемы</li>
+        <li>Digital Health</li>
+        <li>CDTO</li>
+        <li>ESG · GRI</li>
+      </ul>
+
+      <div class="foot">
+        <p>
+          <strong>Экс</strong> — Росздравнадзор
+          <span class="sep">|</span> Минздрав
+        </p>
+        <p><strong>Эксперт</strong> при Минтруде РФ</p>
+        <p>
+          <strong>Нейрофизиолог</strong> — МГУ <span class="sep">·</span> РНИМУ
+          <span class="sep">·</span> РАН
+        </p>
+      </div>
+    </article>
+  </body>
+</html>
